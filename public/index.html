@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es" class="transition-colors duration-500">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Vectores Gradientes</title>
+    <!-- Carga de Tailwind CSS CDN (No lo levantamos fuera de produccion)-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Configuración de Tailwind para colores personalizados -->
+    <script src="./config/tailwindConfig.js"></script>
+
+    <!-- Estilos Adicionales (incluyendo la transición de color del body) -->
+     <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<!-- Aplicamos las clases base, ahora usando los nombres definidos en la config de Tailwind -->
+<body class="antialiased min-h-screen bg-dark-primary text-gray-100 dark:bg-light-primary dark:text-gray-900 transition-colors duration-500">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-dark-primary/90 backdrop-blur-sm shadow-lg shadow-dark-primary/50 dark:bg-light-secondary/90 dark:shadow-gray-300/50 transition-colors duration-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <!-- Logo/Nombre de la App -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span class="text-xl font-extrabold tracking-tight text-white dark:text-gray-900 transition-colors duration-500">Gradiente Pro</span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Navegación de escritorio (oculta en móvil) -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300 dark:text-gray-600 transition-colors duration-500">
+                    <a href="#features" class="hover:text-indigo-400 dark:hover:text-indigo-600 transition-colors duration-300">Características</a>
+                    <a href="#galeria" class="hover:text-indigo-400 dark:hover:text-indigo-600 transition-colors duration-300">Galeria</a>
+                    <a href="#informacion" class="hover:text-indigo-400 dark:hover:text-indigo-600 transition-colors duration-300">Informacion</a>
+                    <a href="#contact" class="hover:text-indigo-400 dark:hover:text-indigo-600 transition-colors duration-300">Contacto</a>
+                </div>
+
+                <!-- Toggle de Modo (Dark/Light) -->
+                <button id="theme-toggle" class="p-2 rounded-full text-gray-400 dark:text-gray-600 hover:text-indigo-400 dark:hover:text-indigo-700 hover:bg-white/10 dark:hover:bg-gray-200 transition-colors duration-300">
+                    <!-- Icono de Sol (Para cambiar a Modo Claro) - Visible en Modo Oscuro -->
+                    <svg id="sun-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <!-- Icono de Luna (Para cambiar a Modo Oscuro) - Visible en Modo Claro -->
+                    <svg id="moon-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+
+                <!-- CTA Principal en Navbar -->
+                <a href="./app.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-5 rounded-full shadow-lg transition duration-300 transform hover:scale-105 hidden md:inline-flex text-sm">
+                    Probar App
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section (Sección Principal) -->
+        <section class="relative pt-20 pb-28 sm:pt-32 sm:pb-40 overflow-hidden text-center">
+            <!-- Fondo de gradiente sutil: Sigue siendo el mismo color (indigo) pero más sutil en Light Mode -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none dark:opacity-5 transition duration-500" style="background: radial-gradient(circle at 50% 10%, #4f46e5 0%, transparent 70%);"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Etiqueta superior -->
+                <span class="inline-flex items-center px-4 py-1 text-xs font-medium bg-indigo-500/20 text-indigo-400 dark:bg-indigo-100 dark:text-indigo-600 rounded-full mb-6 border border-indigo-500/30 dark:border-indigo-300 transition-colors duration-300">
+                    Calculadora de Vectores Gradientes
+                </span>
+                
+                <!-- Título principal: Gradiente de texto -->
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-white via-indigo-300 to-indigo-400 dark:from-gray-900 dark:via-indigo-600 dark:to-indigo-800 mb-6 transition-colors duration-500">
+                    La Herramienta para el Calculo Multivariable
+                </h1>
+                
+                <!-- Subtítulo / Descripción -->
+                <p class="text-lg sm:text-xl text-gray-400 dark:text-gray-600 max-w-3xl mx-auto mb-10 transition-colors duration-300">
+                    Gradiente Pro es una herramienta completa para visualizar, calcular y entender vectores gradientes con mucha mas facilidad.
+                </p>
+
+                <!-- CTA principal -->
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-2xl shadow-indigo-500/50 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
+                        Empezar a Calcular Gratis
+                    </a>
+                    <a href="#features" class="w-full sm:w-auto text-white dark:text-gray-800 font-semibold py-3 px-8 rounded-xl border border-gray-600 hover:border-indigo-400 hover:text-indigo-400 dark:border-gray-400 dark:hover:border-indigo-600 dark:hover:text-indigo-600 transition-colors duration-300">
+                        Ver Características
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-20 bg-dark-primary dark:bg-light-primary transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white dark:text-gray-900 transition-colors duration-300">Diseñada para la Precisión y la Intuición</h2>
+                <p class="text-xl text-gray-400 dark:text-gray-600 max-w-3xl mx-auto mb-16 transition-colors duration-300">
+                    Descubre cómo Gradiente Pro transforma la forma en que abordas el cálculo multivariable.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                    <!-- Caracteristica 1 -->
+                    <!-- NOTA porque luego se me olvida comentar esto: Las tarjetas usan bg-dark-secondary para contrastar sutilmente con el fondo primary. -->
+                    <div class="p-8 bg-dark-secondary dark:bg-light-secondary rounded-xl shadow-xl border border-indigo-500/30 hover:shadow-indigo-500/20 dark:border-gray-200 dark:hover:shadow-indigo-200/50 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1v-3.25m-7.25 0H16m-7.25 0V7.75m7.25 0v5.25m-7.25 0h7.25m-7.25 0V7.75m7.25 0h-7.25m7.25 0L12 3l-3.25 4.75m0 0h7.25m-7.25 0L12 3m0 0l3.25 4.75" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v3" />
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white dark:text-gray-900 mb-3 transition-colors duration-300">Visualización 3D Interactiva</h3>
+                        <p class="text-gray-400 dark:text-gray-600 transition-colors duration-300">
+                            Experimenta funciones escalares y campos vectoriales en un entorno 3D, girando, haciendo zoom y viendo el gradiente en acción.
+                        </p>
+                    </div>
+
+                    <!-- Caracteristica 2 -->
+                    <div class="p-8 bg-dark-secondary dark:bg-light-secondary rounded-xl shadow-xl border border-indigo-500/30 hover:shadow-indigo-500/20 dark:border-gray-200 dark:hover:shadow-indigo-200/50 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.944 12c.045 4.049 1.638 7.641 4.258 10.329a.7.7 0 001.079-.101l3.54-5.32c.16-.24.088-.56-.153-.72a1.8 1.8 0 01-1.39-1.87v-2.18c0-.77.63-1.4 1.4-1.4h4.8c.77 0 1.4.63 1.4 1.4v2.18c0 .87-.63 1.58-1.39 1.87-.24.16-.313.48-.153.72l3.54 5.32a.7.7 0 001.08.101c2.62-2.688 4.212-6.28 4.257-10.33V12c0-3.37-1.35-6.7-3.95-9.056z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white dark:text-gray-900 mb-3 transition-colors duration-300">Resultados con Alta Precisión</h3>
+                        <p class="text-gray-400 dark:text-gray-600 transition-colors duration-300">
+                            Algoritmos optimizados que garantizan la máxima exactitud en derivadas parciales, gradientes y planos tangentes.
+                        </p>
+                    </div>
+
+                    <!-- Caracteristica 3 -->
+                    <div class="p-8 bg-dark-secondary dark:bg-light-secondary rounded-xl shadow-xl border border-indigo-500/30 hover:shadow-indigo-500/20 dark:border-gray-200 dark:hover:shadow-indigo-200/50 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white dark:text-gray-900 mb-3 transition-colors duration-300">Multi-Variable y Parámetros</h3>
+                        <p class="text-gray-400 dark:text-gray-600 transition-colors duration-300">
+                            Soporte para funciones de hasta 5 variables, permitiendo explorar problemas complejos de optimización y física.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Esto es nada mas como para informacion -->
+        <section id="informacion" class="py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-indigo-600/20 dark:bg-indigo-100 p-10 sm:p-12 rounded-3xl border border-indigo-700/50 dark:border-indigo-300/50 shadow-2xl shadow-indigo-900/50 dark:shadow-indigo-200/50 transition-colors duration-300">
+                <h2 class="text-4xl font-extrabold mb-4 text-white dark:text-gray-900 transition-colors duration-300">¿Listo para transformar tu Cálculo?</h2>
+                <p class="text-xl text-indigo-200 dark:text-indigo-700 max-w-2xl mx-auto mb-8 transition-colors duration-300">
+                    Únete a miles de ingenieros, estudiantes y matemáticos que ya usan Gradiente Pro para avanzar en sus proyectos.
+                </p>
+                <a href="#" class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-3 px-10 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50">
+                    Probar App
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-20 py-10 border-t border-gray-700/50 dark:border-gray-300/50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <p class="text-sm text-gray-500 dark:text-gray-500 mb-4 sm:mb-0 transition-colors duration-300">&copy; 2025 Gradiente Pro. Todos los derechos reservados - Proyecto de Matematicas Para Ingenieria.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-indigo-400 dark:text-gray-600 dark:hover:text-indigo-600 transition-colors duration-300 text-sm">Privacidad</a>
+                <a href="#" class="text-gray-400 hover:text-indigo-400 dark:text-gray-600 dark:hover:text-indigo-600 transition-colors duration-300 text-sm">Términos</a>
+                <a href="#" class="text-gray-400 hover:text-indigo-400 dark:text-gray-600 dark:hover:text-indigo-600 transition-colors duration-300 text-sm">Soporte</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./js/script.js"></script>
+</body> 
+</html>
