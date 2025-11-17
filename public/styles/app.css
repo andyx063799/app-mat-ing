@@ -1,0 +1,28 @@
+
+        /* Configuración de color y fuente para Tailwind */
+        :root {
+            --primary-color: #4f46e5; /* Indigo-600 */
+        }
+        
+        /* Uso de la fuente Inter (por defecto en Tailwind) */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Estilos para el panel de resultados usando LaTeX-like math */
+        .math-expr {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #1f2937; /* Default light mode text */
+        }
+        
+        /* Estilos de texto de Math.js en Modo Oscuro */
+        .dark .math-expr {
+            color: #d1d5db; /* Light gray in dark mode */
+        }
+
+        /* Clase para animaciones suaves */
+        .transition-all {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
