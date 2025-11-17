@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Vector Gradiente</title>
     <link rel="stylesheet" href="./styles/app.css">
-    <!-- Carga de Tailwind CSS CDN (Primero, para que la variable 'tailwind' exista) -->
+    <!-- Carga de Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración de Tailwind para habilitar dark mode por CLASE (Segundo, ahora que 'tailwind' está definido) -->
+    <!-- Configuración de Tailwind -->
     <script src="./config/appConfig.js"></script>
-    <!-- Carga de Math.js CDN para cálculos simbólicos -->
+    <!-- Carga de Math.js CDN para cálculos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.js"></script>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-900 transition-all duration-300">
@@ -43,7 +43,7 @@
                     Cantidad de Variables (n):
                 </label>
                 <div class="flex space-x-4">
-                    <!-- Los estilos de los botones se manejan dinámicamente -->
+                    <!-- Los estilos de los botones se manejan de forma dinamica como esta aqui -->
                     <button id="vars-2" data-vars="2" class="var-btn px-4 py-2 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all shadow-md">
                         2 Variables (x, y)
                     </button>
@@ -61,7 +61,7 @@
                 <input type="text" id="function-input" placeholder="Ej: sin(x*y) + z^2" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition-shadow shadow-sm">
             </div>
 
-            <!-- Inputs de Punto (Controlados por JS) -->
+            <!-- Inputs de Punto (estos ya se controlan con js) -->
             <div id="point-inputs" class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div id="point-x-container">
                     <label for="point-x" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

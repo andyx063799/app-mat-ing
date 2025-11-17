@@ -1,6 +1,5 @@
 body {
     font-family: 'Inter', sans-serif;
-    /* La transición se maneja mejor a través de Tailwind en la clase del body */
     transition: background-color 0.5s, color 0.5s; 
 }
 
